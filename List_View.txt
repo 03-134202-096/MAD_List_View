@@ -1,0 +1,264 @@
+
+
+////////////////////////////             ALL VIEW                /////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////             XML                /////////////////////////////////////////////////////
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".List_View">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHOOSE OPTION"
+        android:textStyle="bold"
+        android:id="@+id/L_txtviewe"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:id="@+id/spin1"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv1"
+        android:visibility="gone"/>
+
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:padding="20dp"
+        android:hint="Search HERE"
+        android:id="@+id/actv1"
+        />
+
+</LinearLayout>
+
+
+
+
+
+////////////////////////////             JAVA               /////////////////////////////////////////////////////
+
+
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+public class List_View extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_view);
+        Spinner spinner=findViewById(R.id.spin1);
+        TextView textView=findViewById(R.id.L_txtviewe);
+        ListView listView = findViewById(R.id.lv1);
+        TextView l_textview=findViewById(R.id.L_txtviewe);
+        AutoCompleteTextView actv=findViewById(R.id.actv1);
+
+        ArrayList<String> arlist=new ArrayList<>();
+        ArrayList<String> spinnerlist=new ArrayList<>();
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        ArrayAdapter<String> arradpter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arlist);
+        listView.setAdapter(arradpter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position==1)
+                {
+                    Toast.makeText(getApplicationContext(),"ASAD PRESSED",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    String url="https://www.youtube.com/watch?v=loJSafLQQ1g&ab_channel=Ajjok%D8%A7%D8%AC%D9%88%DA%A9";
+                    Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+//                    Toast.makeText(getApplicationContext(),"OTHER",Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+
+        //Spinner
+        spinnerlist.add("one");
+        spinnerlist.add("two");
+        spinnerlist.add("three");
+        spinnerlist.add("four");
+
+
+        ArrayAdapter<String> spinneradpter=new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,arlist);
+        spinner.setAdapter(spinneradpter);
+
+
+        //Automatic
+
+
+        ArrayAdapter<String> autocomp_adpter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arlist);
+        actv.setAdapter(autocomp_adpter);
+        actv.setThreshold(1);
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////                        LIST VIEW       ///////////////////////////////////////////
+
+
+
+
+package com.example.myapplication;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
+public class List_View extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_view);
+        ListView listView = findViewById(R.id.lv1);
+        ArrayList<String> arlist=new ArrayList<>();
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+
+        arlist.add("ASAD");
+        arlist.add("UMER");
+        arlist.add("ALI");
+        arlist.add("HASSan");
+        arlist.add("FAKHER");
+        arlist.add("KHAN");
+        arlist.add("KHOSa");
+        ArrayAdapter<String> arradpter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,arlist);
+        listView.setAdapter(arradpter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position==1)
+                {
+                    Toast.makeText(getApplicationContext(),"ASAD PRESSED",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    String url="https://www.youtube.com/watch?v=loJSafLQQ1g&ab_channel=Ajjok%D8%A7%D8%AC%D9%88%DA%A9";
+                    Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+//                    Toast.makeText(getApplicationContext(),"OTHER",Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
+
+
+
+    }
+}
